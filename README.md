@@ -1,2 +1,2 @@
-# bullseye
-First flutter test App from Flutter Apprentice
+# BullsEye
+This is a first flutter test App from Flutter Apprentice
