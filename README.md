@@ -1,5 +1,5 @@
 # BullsEye
-This is a first flutter test App 
+This is a first flutter test App provided by Flutter Apprentice (https://flutter.dev/apprentice-giveaway)
 
 - flutter 2.5.2
 - Dart 2.14.3
