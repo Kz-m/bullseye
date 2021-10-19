@@ -18,7 +18,7 @@ class GamePage extends StatefulWidget{ //自分の関数を更新することで
   final String title;
 
   @override
-  _GamePageState createState() => _GamePageState(); //crated "createState" object. _GamePageState means "private this file"
+  _GamePageState createState() => _GamePageState(); //created "createState" object. _GamePageState means "private this file"
 }
 
 class _GamePageState extends State<GamePage>{
