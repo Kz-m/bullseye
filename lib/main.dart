@@ -23,6 +23,7 @@ class GamePage extends StatefulWidget{ //自分の関数を更新することで
 
 class _GamePageState extends State<GamePage>{
   bool _alertIsVisible = false; //_alertIsVisible propaty is private to this class
+  bool _whosThereIsVisible = false; //2nd alertのclass
 
   @override
   Widget build(BuildContext context){
@@ -37,11 +38,19 @@ class _GamePageState extends State<GamePage>{
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
             ), //Text
             TextButton(
-              child: Text('Hit Me!', style: TextStyle(color: Colors.blue)),
+              child: Text('Hit Me', style: TextStyle(color: Colors.blue)),
               onPressed: (){
                 this._alertIsVisible = true;
                 _showAlert(context); //this context came from 28 line (hit me buttonの色？)
                 print("Button pressed!");
+              },
+            ),
+            TextButton(
+              child: Text('Knock Knock', style: TextStyle(color: Colors.pink)),
+              onPressed: (){
+                this._whosThereIsVisible = true;
+                _showWhosThere(context);
+                print("The second button pressed!"); //どちらのボタンが働いているかterminalで確認用に書いておく
               },
             ),
           ],
@@ -72,4 +81,27 @@ class _GamePageState extends State<GamePage>{
       },
     );
   } //_showAlert needs what's code BuildContext
+
+  void _showWhosThere(BuildContext context){
+    Widget okButton = TextButton(
+      child: Text("Again?"),
+      onPressed: (){
+        Navigator.of(context).pop();
+        this._whosThereIsVisible = false;
+        print("Pressed Again $_whosThereIsVisible");
+      });
+    showDialog(
+      context: context,
+      builder: (BuildContext contect){
+        return AlertDialog(
+          title: Text("Nice creaking of shoes!"),
+          content: Text("Meant You're noisy."),
+          actions: <Widget>[
+            okButton,
+          ],
+          elevation: 4,
+        );
+      },
+    );
+  }
 }
